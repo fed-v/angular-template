@@ -3,22 +3,38 @@
 
 	<head lang="en">
 		<meta charset="UTF-8">
-		<title>My First Angular Project</title>
+		<title>Angular Project</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script> <!-- LOAD ANGULAR FRAMEWORK -->
 		<script src="js/myAppModule.js"></script>  <!-- LOAD ANGULAR MODULE -->
 	</head>
 	
-	<body data-ng-controller="myFilterDemoCtrl"> <!-- BIND MY DECLARED CONTROLLER (YOU CAN USE MORE THAN ONE) -->
+	<body> 
 	
-        <!-- BUILT-IN FILTERS -->
-		<p> Name: {{ myData.firstname | lowercase }}</p>  <!-- LOWERCASE FILTER -->
-		<p> Total Consumption: {{ myData.consumption | number:2 }}</p> <!-- NUMBER FILTER SHORETENS FLOAT TO 2 DECIMALS -->
-		<p> Joined: {{ myData.dateJoined | date:'shortDate' }}</p>  <!-- DATE FILTER CHANGES DATE FORMAT-->
-		
-		<!-- CUSTOM FILTERS -->
-		<p> Fullname: {{ myData.firstname + ' ' + myData.lastname | toTitleCase }}</p> <!-- CUSTOM FILTER FOR TITLE CASING STRINGS -->
-		<p> Plan: {{ myData.plan | stripDashes | toTitleCase }}</p> <!-- CUSTOM FILTER THAT ELIMINATES DASHES -->
-	
-	</body>
+        <div data-ng-controller="myFilterDemoCtrl"> <!-- BIND MY DECLARED CONTROLLER (YOU CAN USE MORE THAN ONE) -->
+        
+            <!-- BUILT-IN FILTERS -->
+            <p> Name: {{ data.firstname | lowercase }}</p>  <!-- LOWERCASE FILTER -->
+            <p> Total Consumption: {{ data.consumption | number:2 }}</p> <!-- NUMBER FILTER SHORETENS FLOAT TO 2 DECIMALS -->
+            <p> Joined: {{ data.dateJoined | date:'shortDate' }}</p>  <!-- DATE FILTER CHANGES DATE FORMAT-->
+            
+            <!-- CUSTOM FILTERS -->
+            <p> Fullname: {{ data.firstname + ' ' + data.lastname | toTitleCase }}</p> <!-- CUSTOM FILTER FOR TITLE CASING STRINGS -->
+            <p> Plan: {{ data.plan | stripDashes | toTitleCase }}</p> <!-- CUSTOM FILTER THAT ELIMINATES DASHES -->
+        
+            <button data-ng-click="welcome()">Welcome</button> <!-- CONTROLLER FUNCTION BOUND BY CLICK DIRECTIVE -->
+            
+            <!-- REPEAT DIRECTIVE USED TO LOOP THROUGH AN ARRAY-->
+            <ul>
+                <!-- AS MANY LI ELEMENTS WILL BE CREATED AS THERE ARE ELEMENTS IN MY ARRAY-->
+                <li data-ng-repeat="index in data.myArray"> {{ index | uppercase }}</li> <!-- TAKE EACH ARRAY ELEMENT AND STORE IT IN SCOPE VARIABLE "INDEX"-->
+            </ul>
+            
+            <!-- HIDE AND SHOW DIRECTIVES-->
+            <p data-ng-show="data.myArray.length == 0"> The array is empty!</p>  <!-- IF EXPRESSION IS TRUE, THE ELEMENT WILL BE SHOWN -->
+            <p data-ng-hide="data.myArray.length > 0"> You should load elements to your array.</p>  <!-- IF EXPRESSION IS FALSE, THE ELEMENT WILL BE HIDDEN -->
+            
+        </div> <!-- END OF THE myFilterDemoCtrl SCOPE! -->
+        
+	</body> 
 
 </html>
