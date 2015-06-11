@@ -20,7 +20,9 @@
             <!-- CUSTOM FILTERS -->
             <p> Fullname: {{ data.firstname + ' ' + data.lastname | toTitleCase }}</p> <!-- CUSTOM FILTER FOR TITLE CASING STRINGS -->
             <p> Plan: {{ data.plan | stripDashes | toTitleCase }}</p> <!-- CUSTOM FILTER THAT ELIMINATES DASHES -->
-        
+            
+            <p> number: {{ myNum }}</p>
+            
             <button data-ng-click="welcome()">Welcome</button> <!-- CONTROLLER FUNCTION BOUND BY CLICK DIRECTIVE -->
             
             <!-- REPEAT DIRECTIVE USED TO LOOP THROUGH AN ARRAY-->

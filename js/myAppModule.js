@@ -12,7 +12,7 @@ var app = angular.module('myAppModule', []);
 
 app.controller('myFilterDemoCtrl', function($scope){
 		
-		// Data goes here in Array or Object form!
+		// ADD VARIABLES TO YOUR CONTROLLER SCOPE
 		$scope.data = {
 			
 			firstname: 'JANET',
@@ -24,11 +24,14 @@ app.controller('myFilterDemoCtrl', function($scope){
 			
 		};
         
-        // Behaviour functions 
+        // YOU CAN ALSO ADD BEHAVIOURS TO YOUR SCOPE
         $scope.welcome = function (){
             alert("Welcome!");
         }
-		
+        
+        // YOU CAN ADD ANY VARIABLES TO YOUR SCOPE
+		$scope.myNum = 25;
+        
 	}
 );
 
